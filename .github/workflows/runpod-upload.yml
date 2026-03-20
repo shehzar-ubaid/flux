@@ -15,14 +15,14 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          # YAHAN APNA ASLI USERNAME LIKHEIN (Bina brackets ke)
-          username: shehzarubaid 
+          # Secret use karein, lekin spelling check kar lein
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and Push to Docker Hub
+      - name: Build and Push
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          # YAHAN BHI APNA ASLI USERNAME LIKHEIN
-          tags: shehzarubaid/flux-runpod:latest
+          # Aapka image tag
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/flux-runpod:latest
