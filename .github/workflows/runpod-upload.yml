@@ -22,4 +22,5 @@ jobs:
         with:
           context: .
           push: true
+          # 'username' ki jagah apna asli Docker Hub username bhi likh sakte hain
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/flux-runpod:latest
